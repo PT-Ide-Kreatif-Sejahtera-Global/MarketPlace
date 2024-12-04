@@ -6,15 +6,15 @@
 	</div>
 
 	<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 relative">
-		<!-- Main content with enhanced styling -->
-		<div class="space-y-4">
-			<h1 class="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-lime-700 to-lime-500 transition-all duration-300 hover:scale-[1.02] transform cursor-default">
-				{{ $slot }}
-			</h1>
-			<p class="text-lg text-lime-600/90 font-medium max-w-2xl leading-relaxed border-l-4 border-lime-400 pl-4 transition-all duration-300 hover:border-lime-500">
-				Temukan koleksi terbaik kami di sini!
-			</p>
-		</div>
+			<!-- Main content with enhanced styling -->
+			<div class="bg-gradient-to-r from-lime-500 to-lime-700 text-white py-6">
+				<div class="container mx-auto px-3">
+					<h1 class="text-4xl font-bold mb-2">{{ $slot }}</h1>
+					<p class="text-xl">
+					Temukan berbagai macam produk menarik di iDeaThings Marketplace
+					</p>
+				</div>
+			</div>
 
 		<!-- Optional decorative element -->
 		<div class="absolute right-0 bottom-0 hidden lg:block">

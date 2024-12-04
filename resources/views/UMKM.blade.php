@@ -1,16 +1,7 @@
 <x-layout>
 	<x-slot:title>{{ $title }}</x-slot:title>
 	
-	<!-- Hero Section -->
-	<div class="bg-gradient-to-r from-lime-500 to-lime-700 text-white py-12">
-		<div class="container mx-auto px-4">
-			<h1 class="text-4xl font-bold mb-4">Produk UMKM</h1>
-			<p class="text-xl">
-				Temukan berbagai produk UMKM berkualitas di iDeaThings Marketplace
-			</p>
-		</div>
-	</div>
-
+	
 	<div class="container mx-auto px-4 py-8">
 		<!-- Search Section -->
 		<div class="mb-8 max-w-2xl mx-auto">
@@ -19,7 +10,7 @@
 					   name="query" 
 					   id="search-input"
 					   class="w-full px-4 py-3 pl-12 text-gray-700 bg-white border border-lime-300 rounded-full focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent shadow-sm"
-					   placeholder="Search UMKM products..."
+					   placeholder="Search products discount..."
 					   value="{{ request('query') }}"
 				/>
 				<svg class="absolute left-4 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

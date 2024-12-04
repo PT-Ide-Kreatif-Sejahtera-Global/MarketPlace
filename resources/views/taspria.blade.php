@@ -1,16 +1,6 @@
 <x-layout>
 	<x-slot:title>{{ $title }}</x-slot:title>
 
-	<!-- Hero Section -->
-	<div class="bg-gradient-to-r from-lime-500 to-lime-700 text-white py-12">
-		<div class="container mx-auto px-4">
-			<h1 class="text-4xl font-bold mb-4">Koleksi Tas Pria</h1>
-			<p class="text-xl">
-				Temukan berbagai macam tas pria berkualitas di iDeaThings Marketplace
-			</p>
-		</div>
-	</div>
-
 	<div class="container mx-auto px-4 py-8">
 		<!-- Products Grid -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

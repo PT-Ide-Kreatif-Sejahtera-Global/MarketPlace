@@ -1,17 +1,7 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
-    
-    <!-- Hero Section -->
-    <div class="bg-gradient-to-r from-lime-500 to-lime-700 text-white py-12">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold mb-4">Selamat Datang di Marketplace iDeaThings!</h1>
-            <p class="text-xl">
-                Temukan berbagai macam produk menarik di iDeaThings Marketplace
-            </p>
-        </div>
-    </div>
-
-    <div class="container mx-auto px-4 py-8">
+       
+    <div class="container mx-auto px-4 py-4">
         <!-- Search Section with Better Styling -->
         <div class="mb-8 max-w-2xl mx-auto">
             <form id="search-form" class="relative">
