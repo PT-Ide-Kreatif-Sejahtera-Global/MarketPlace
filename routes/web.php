@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminControllers;
 
 Route::get('/', [ProductController::class, 'allProducts'])->name('product.paginate');
 
@@ -29,7 +29,7 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/search/umkm', [SearchController::class, 'searchUmkm'])->name('search.umkm');
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/products', [AdminController::class, 'index'])->name('admin.products.index');
-    Route::put('/admin/products/{product}/discount', [AdminController::class, 'updateDiscount'])
+    Route::get('/admin/products', [AdminControllers::class, 'index'])->name('admin.products.index');
+    Route::put('/admin/products/{product}/discount', [AdminControllers::class, 'updateDiscount'])
          ->name('admin.products.discount');
 });
