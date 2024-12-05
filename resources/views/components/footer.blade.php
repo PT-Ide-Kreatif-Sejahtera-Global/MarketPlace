@@ -1,4 +1,4 @@
-<footer class="bg-gradient-to-r from-lime-700 to-lime-600 text-white py-12">
+<footer class="bg-gradient-to-r from-lime-500 to-lime-700 text-white py-12">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
             <!-- About Section -->
