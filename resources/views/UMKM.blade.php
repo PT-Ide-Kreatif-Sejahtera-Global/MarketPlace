@@ -21,8 +21,8 @@
 
 		<!-- Products Grid -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-			@foreach($products->where('kategori', 'UMKM') as $product)
-				<x-product-card :product="$product" />
+			@foreach($products->where('produk_diskon', 'Y') as $product)
+				<x-product-diskon :product="$product" />
 			@endforeach
 		</div>
 
