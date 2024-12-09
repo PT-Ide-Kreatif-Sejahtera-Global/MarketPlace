@@ -10,7 +10,9 @@ class ProductController extends Controller
 {
     public function allProducts()
     {
-        $products = DB::table('products')->paginate(12);
+        $products = DB::table('products')
+                    ->where('produk_diskon','<>','Y')
+                    ->paginate(12);
         return view('home', ['title' => 'Selamat Datang di Marketplace iDeaThings!', 'product' => $products]);
     }
 
