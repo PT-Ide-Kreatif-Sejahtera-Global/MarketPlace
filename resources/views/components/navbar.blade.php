@@ -1,9 +1,9 @@
 <nav class="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 shadow-2xl fixed w-full top-0 z-50 transition-all duration-300" x-data="{ isOpen: false }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
-            <!-- Logo and text with modern styling -->
+            <!-- Logo and text -->
             <div class="flex-shrink-0 flex items-center space-x-3 transform transition-transform hover:scale-105">
-                <a href="/" class="flex items-center">
+                <a href="{{ url('/') }}" class="flex items-center">
                     <img class="h-12 w-auto rounded-full shadow-md" src="https://i.ibb.co.com/GT40BHk/file-1.png" alt="iDeaThings">
                     <div class="ml-3 text-gray-900 font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lime-600 to-lime-600">
                         iDeaThings
