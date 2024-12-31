@@ -9,10 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('kategori');
             $table->string('img');
             $table->string('produk');
@@ -20,7 +20,9 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->decimal('harga', 10, 2);
             $table->string('link');
-            $table->timestamps();
+            $table->timestamps(); // This will create 'created_at' and 'updated_at'
+            $table->decimal('harga_diskon', 10, 2);
+            $table->string('produk_diskon');
         });
     }
 

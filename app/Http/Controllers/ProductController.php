@@ -9,12 +9,16 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function allProducts()
-    {
-        $products = DB::table('products')
-                    ->where('produk_diskon','<>','Y')
+{
+    $products = DB::table('products')
+                    ->where('produk_diskon', '<>', 'Y')
+                    ->orderByRaw('CASE WHEN jumlah > 0 THEN 0 ELSE 1 END') 
+                    ->inRandomOrder() 
                     ->paginate(12);
-        return view('home', ['title' => 'Selamat Datang di Marketplace iDeaThings!', 'product' => $products]);
-    }
+                    
+    return view('home', ['title' => 'Selamat Datang di Marketplace iDeaThings!', 'product' => $products]);
+}
+    
 
     public function show($id)
     {
