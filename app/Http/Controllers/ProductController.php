@@ -8,17 +8,45 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+
+		public function index()
+		{
+				return view('products.index', [
+						'title' => 'Our Products',
+						'featuredProducts' => Product::orderBy('created_at', 'desc')
+								->take(10)
+								->get(),
+						'products' => Product::orderBy('created_at', 'desc')
+								->paginate(16)
+				]);
+		}
+
+		public function search(Request $request)
+		{
+				$query = $request->input('query');
+				
+				$products = Product::where('produk', 'like', "%{$query}%")
+						->orWhere('description', 'like', "%{$query}%")
+						->orWhere('kategori', 'like', "%{$query}%")
+						->orderBy('created_at', 'desc')
+						->get();
+
+				return view('products.partials.product-grid', compact('products'));
+		}
+
+    public function home()
+    {
+        $title = 'Home';
+        $product = Product::latest()->get();
+        return view('home', compact('product', 'title'));
+    }
+
     public function allProducts()
-{
-    $products = DB::table('products')
-                    ->where('produk_diskon', '<>', 'Y')
-                    ->orderByRaw('CASE WHEN jumlah > 0 THEN 0 ELSE 1 END') 
-                    ->inRandomOrder() 
-                    ->paginate(12);
-                    
-    return view('home', ['title' => 'Selamat Datang di Marketplace iDeaThings!', 'product' => $products]);
-}
-    
+    {
+        $title = 'All Products';
+        $product = Product::latest()->paginate(12);
+        return view('allProduct', compact('product', 'title'));
+    }
 
     public function show($id)
     {
