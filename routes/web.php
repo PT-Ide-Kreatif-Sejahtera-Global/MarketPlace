@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminControllers;
 
-Route::get('/', [ProductController::class, 'allProducts'])->name('product.paginate');
+Route::get('/', [ProductController::class, 'home'])->name('product.paginate.home');
+
+Route::get('/home', [ProductController::class, 'home'])->name('product.paginate.home');
+
+Route::get('/produk', [ProductController::class, 'allProducts'])->name('product.paginate.produk');
 
 Route::get('/detail/{id}', [ProductController::class, 'show'])->name('product.show');
 

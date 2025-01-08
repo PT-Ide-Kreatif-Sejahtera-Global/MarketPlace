@@ -14,9 +14,11 @@
             <!-- Centered navigation with modern hover effects -->
             <div class="hidden md:flex flex-1 justify-center">
                 <div class="flex items-baseline space-x-6">
-                    <a href="{{ url('/') }}" class="group relative {{ request()->is('/') ? 'text-lime-600 font-bold' : 'text-gray-600' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600">
+                    <a href="{{ route('product.paginate.home') }}" class="group relative {{ request()->is('/') ? 'text-lime-600 font-bold' : 'text-gray-600' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600">
+                        Home
+                    </a>
+                    <a href="{{ route('product.paginate.produk') }}" class="group relative {{ request()->is('produk') ? 'text-lime-600 font-bold' : 'text-gray-600' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600">
                         Produk
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-lime-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                     </a>
                     <x-nav-fashion class="group relative text-gray-600 hover:text-lime-600 px-3 py-2 text-sm font-medium transition-all duration-300">
                         <span class="absolute bottom-0 left-0 w-full h-0.5 bg-lime-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
@@ -56,9 +58,11 @@
     <!-- Mobile menu with enhanced styling -->
     <div x-show="isOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" class="md:hidden bg-white/95 backdrop-blur-lg shadow-lg">
         <div class="space-y-2 px-3 pb-4 pt-3">
-            <a href="{{ url('/') }}" class="group relative {{ request()->is('/') ? 'text-lime-600 font-bold' : 'text-gray-600' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600">
+            <a href="{{ route('product.paginate.home') }}" class="group relative {{ request()->is('/') ? 'text-lime-600 font-bold' : 'text-gray-600' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600">
+                Home
+            </a>
+            <a href="{{ route('product.paginate.produk') }}" class="group relative {{ request()->is('produk') ? 'text-lime-600 font-bold' : 'text-gray-600' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600">
                 Produk
-                <span class="absolute bottom-0 left-0 w-full h-0.5 bg-lime-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </a>
             <x-nav-fashion class="group relative text-gray-600 hover:text-lime-600 px-3 py-2 text-sm font-medium transition-all duration-300">
                 <span class="absolute bottom-0 left-0 w-full h-0.5 bg-lime-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
