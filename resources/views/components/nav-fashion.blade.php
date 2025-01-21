@@ -3,12 +3,12 @@
       <button 
           type="button" 
           @click="isOpen = !isOpen" 
-          class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-lime-800 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-lime-800 hover:bg-lime-700" 
+          class="{{ request()->is('fashion/*') ? 'text-lime-600 font-bold' : 'text-gray-600' }} inline-flex w-full justify-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-lime-600" 
           id="menu-button" 
           aria-expanded="true" 
           aria-haspopup="true">
           Fashion
-          <svg class="-mr-1 h-5 w-5 text-lime-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+          <svg class="-mr-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
               <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
           </svg>
       </button>
@@ -29,27 +29,27 @@
       tabindex="-1">
       
       <div class="py-1" role="none">
-        <a href="{{ route('pakaianpria') }}" 
+        <a href="{{ route('fashion.pakaianpria') }}" 
         class="{{ Route::currentRouteName() === 'pakaianpria' ? 'bg-lime-900 text-white' : 'text-lime-700 hover:bg-lime-700 hover:text-white' }} 
                block px-4 py-2 text-sm" 
         role="menuitem">Pakaian Pria</a>
      
-     <a href="{{ route('pakaianwanita') }}" 
+     <a href="{{ route('fashion.pakaianwanita') }}" 
         class="{{ Route::currentRouteName() === 'pakaianwanita' ? 'bg-lime-900 text-white' : 'text-lime-700 hover:bg-lime-700 hover:text-white' }} 
                block px-4 py-2 text-sm" 
         role="menuitem">Pakaian Wanita</a>
      
-     <a href="{{ route('taspria') }}" 
+     <a href="{{ route('fashion.taspria') }}" 
         class="{{ Route::currentRouteName() === 'taspria' ? 'bg-lime-900 text-white' : 'text-lime-700 hover:bg-lime-700 hover:text-white' }} 
                block px-4 py-2 text-sm" 
         role="menuitem">Tas Pria</a>
      
-     <a href="{{ route('taswanita') }}" 
+     <a href="{{ route('fashion.taswanita') }}" 
         class="{{ Route::currentRouteName() === 'taswanita' ? 'bg-lime-900 text-white' : 'text-lime-700 hover:bg-lime-700 hover:text-white' }} 
                block px-4 py-2 text-sm" 
         role="menuitem">Tas Wanita</a>
      
-     <a href="{{ route('aksesoris') }}" 
+     <a href="{{ route('fashion.aksesoris') }}" 
         class="{{ Route::currentRouteName() === 'aksesoris' ? 'bg-lime-900 text-white' : 'text-lime-700 hover:bg-lime-700 hover:text-white' }} 
                block px-4 py-2 text-sm" 
         role="menuitem">Aksesoris</a>
