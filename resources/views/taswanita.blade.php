@@ -2,6 +2,11 @@
 	<x-slot:title>{{ $title }}</x-slot:title>
 	
 	<div class="container mx-auto px-4 py-8">
+		<!-- Search Section -->
+		<x-search-bar>
+			<x-slot:placeholder>"Search women's bag collections..."</x-slot:placeholder>
+		</x-search-bar>
+
 		<!-- Products Grid -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 			@foreach($products->where('kategori', 'tas wanita') as $product)
@@ -48,3 +53,26 @@
 		</div>
 	</div>
 </x-layout>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#search-input').on('input', function() {
+            var query = $(this).val();
+
+            $.ajax({
+                url: '{{ route('search') }}',
+                method: 'GET',
+                data: {
+                    query: query,
+					kategori: 'tas wanita'
+                },
+                success: function(data) {
+					console.log(data);
+                    $('#product-list').html(data);
+                }
+            });
+        });
+    });
+</script>

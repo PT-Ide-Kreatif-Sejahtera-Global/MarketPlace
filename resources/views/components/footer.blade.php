@@ -7,7 +7,7 @@
                     PT.Ide Kreatif Sejahtera Global
                 </h3>
                 <p class="text-lime-100 leading-relaxed">
-                    Jl. Suryopranoto No.11 F, RT.008/008, Kel.Petojo Selatan, Kec.Gambir, Jakarta Pusat, DKI Jakarta, 10160, Desa/Kelurahan Petojo Selatan, Kec. Gambir, Kota Adm. Jakarta Pusat, Provinsi DKI Jakarta, Kode Pos: 10160
+                    Jl. Suryopranoto No.11 F, RT.008/008, Desa/Kelurahan Petojo Selatan, Kec. Gambir, Kota Adm. Jakarta Pusat, Provinsi DKI Jakarta, 10160
                 </p>
             </div>
 
@@ -36,10 +36,6 @@
                     Contact Us
                 </h3>
                 <div class="space-y-3">
-                    <p class="text-lime-100 flex items-center">
-                        <i class="fas fa-envelope mr-2"></i>
-                        recruitment@ideathings.com
-                    </p>
                     <p class="text-lime-100 flex items-center">
                         <i class="fas fa-phone mr-2"></i>
                         +62 851-6160-9396

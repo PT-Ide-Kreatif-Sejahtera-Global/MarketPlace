@@ -3,8 +3,13 @@
 	
 	
 	<div class="container mx-auto px-4 py-8">
+		<!-- Search Section -->
+		<x-search-bar>
+			<x-slot:placeholder>"Search men's collections..."</x-slot:placeholder>
+		</x-search-bar>
+
 		<!-- Products Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+		<div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 			@foreach($products->where('kategori', 'pakaian pria') as $product)
 				<div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
 					<div class="relative">
@@ -63,3 +68,25 @@
 		</div>
 	</div>
 </x-layout>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#search-input').on('input', function() {
+            var query = $(this).val();
+
+            $.ajax({
+                url: '{{ route('search') }}',
+                method: 'GET',
+                data: {
+                    query: query,
+					kategori: 'pakaian pria'
+                },
+                success: function(data) {
+                    $('#product-list').html(data);
+                }
+            });
+        });
+    });
+</script>
