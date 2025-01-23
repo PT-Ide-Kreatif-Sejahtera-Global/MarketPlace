@@ -1,4 +1,4 @@
-<nav class="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 shadow-2xl fixed w-full top-0 z-50 transition-all duration-300" x-data="{ isOpen: false }">
+<nav class="bg-white/95 fixed w-full top-0 z-50 transition-all duration-300" x-data="{ isOpen: false }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-20 items-center justify-between">
             <!-- Logo and text -->

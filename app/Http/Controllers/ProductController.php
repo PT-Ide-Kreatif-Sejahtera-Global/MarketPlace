@@ -44,7 +44,7 @@ class ProductController extends Controller
     public function allProducts()
     {
         $title = 'All Products';
-        $product = Product::latest()->paginate(12);
+        $product = Product::latest()->paginate(15);
         return view('allProduct', compact('product', 'title'));
     }
 
