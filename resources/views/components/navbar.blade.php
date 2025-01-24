@@ -4,7 +4,7 @@
             <!-- Logo and text -->
             <div class="flex-shrink-0 flex items-center space-x-3 transform transition-transform hover:scale-105">
                 <a href="{{ url('/') }}" class="flex items-center">
-                    <img class="h-12 w-auto rounded-full shadow-md" src="https://i.ibb.co.com/GT40BHk/file-1.png" alt="iDeaThings">
+                    <img class="h-12 w-auto rounded-full" src="{{ asset('/Img/logo.png') }}" alt="iDeaThings">
                     <div class="ml-3 text-gray-900 font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-lime-600 to-lime-600">
                         iDeaThings
                     </div>
