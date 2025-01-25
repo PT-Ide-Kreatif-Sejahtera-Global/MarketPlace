@@ -1,30 +1,28 @@
 <div
-    class="group relative bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+    class="group relative bg-white rounded-2xl drop-shadow-[0_0_5px_rgb(0,0,0,0.15)] overflow-hidden hover:drop-shadow-[0_0_8px_rgb(0,0,0,0.15)] transition-all duration-300 ease-in-out transform hover:-translate-y-1">
     <!-- Bagian Gambar -->
-    <div class="relative overflow-hidden p-2">
-        <div class="rounded-xl border-2 border-gray-200 overflow-hidden shadow-md">
-            <img src="{{ $product->img }}" alt="{{ $product->produk }}"
-                class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-110">
-        </div>
-    </div>
+    <a href="{{ route('product.show', $product->id) }}" class="relative rounded-2xl overflow-hidden">
+        <img src="{{ url($product->img) }}" alt="{{ $product->produk }}" class="w-full aspect-square object-cover transform transition-transform duration-300 group-hover:scale-105">
+    </a>
 
     <!-- Isi konten -->
-    <div class="p-6">
+    <div class="p-2 md:p-3">
         <!-- Bagian Kategori -->
-        <div class="text-xs font-semibold text-lime-600 uppercase tracking-wide mb-2">
+        <p class="text-[10px] md:text-xs font-medium text-lime-600 uppercase tracking-wide">
             {{ $product->kategori }}
-        </div>
+        </p>
 
         <!-- Bagian Judul -->
-        <h3
-            class="text-lg font-bold text-gray-900 line-clamp-2 mb-3 group-hover:text-lime-600 transition-colors duration-200">
-            {{ $product->produk }}
-        </h3>
+        <a href="{{ route('product.show', $product->id) }}">
+            <h3 class="text-sm md:text-base font-semibold text-gray-900 line-clamp-2 group-hover:text-lime-600 transition-colors duration-200">
+                {{ $product->produk }}
+            </h3>
+        </a>
 
         <!-- Bagian Harga -->
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center justify-between mb-1 md:mb-2">
             <div>
-                <p class="text-2xl font-bold text-lime-600">
+                <p class="text-base md:text-lg font-bold text-lime-600">
                     Rp {{ number_format((float) $product->harga, 0, ',', '.') }}
                 </p>
                 @if ($product->original_price ?? false)
@@ -37,17 +35,14 @@
 
         <!-- Bagian Tombol -->
         <a href="{{ route('product.show', $product->id) }}"
-            class="block w-full text-center bg-lime-600 text-white px-6 py-3 rounded-lg font-semibold
-                 hover:bg-lime-700 active:bg-lime-800 
-                 transition-all duration-200 ease-in-out
-                 transform hover:shadow-lg active:scale-95">
+            class="block w-full text-center ring-1 ring-lime-600 text-lime-600 px-4 py-1 md:px-6 md:py-2 rounded-full font-medium transition-all duration-500 ease-out hover:text-white hover:bg-lime-600">
             View Details
         </a>
     </div>
 
     <!-- Bagian status Stok tersedia atau tidak -->
     <div
-        class="absolute top-4 right-4 text-white text-xs font-bold px-3 py-1 rounded-full 
+        class="absolute top-4 right-4 text-white text-[10px] md:text-xs font-semibold px-2 md:px-3 py-1 rounded-full 
    {{ $product->jumlah > 0 ? 'bg-green-500' : 'bg-red-500' }}">
         {{ $product->jumlah > 0 ? 'Stok Tersedia' : 'Stok Habis' }}
     </div>
