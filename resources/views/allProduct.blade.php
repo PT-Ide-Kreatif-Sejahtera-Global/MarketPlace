@@ -23,7 +23,7 @@
                     @else
                         <li>
                             <a href="{{ $product->previousPageUrl() }}"
-                                class="px-4 py-2 bg-white text-lime-600 rounded-lg hover:bg-lime-50 transition duration-300">
+                                class="px-4 py-2 bg-white text-primary-dark rounded-lg hover:bg-emerald-50 transition duration-300">
                                 &laquo; Prev
                             </a>
                         </li>
@@ -32,7 +32,7 @@
                     @foreach ($product->getUrlRange(1, $product->lastPage()) as $page => $url)
                         <li>
                             <a href="{{ $url }}"
-                                class="px-4 py-2 rounded-lg {{ $page == $product->currentPage() ? 'bg-lime-600 text-white' : 'bg-white text-lime-600 hover:bg-lime-50' }} transition duration-300">
+                                class="px-4 py-2 rounded-lg {{ $page == $product->currentPage() ? 'bg-primary-dark text-white' : 'bg-white text-primary-dark hover:bg-emerald-50' }} transition duration-300">
                                 {{ $page }}
                             </a>
                         </li>
@@ -41,7 +41,7 @@
                     @if ($product->hasMorePages())
                         <li>
                             <a href="{{ $product->nextPageUrl() }}"
-                                class="px-4 py-2 bg-white text-lime-600 rounded-lg hover:bg-lime-50 transition duration-300">
+                                class="px-4 py-2 bg-white text-primary-dark rounded-lg hover:bg-emerald-50 transition duration-300">
                                 Next &raquo;
                             </a>
                         </li>
