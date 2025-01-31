@@ -29,15 +29,15 @@
       tabindex="-1">
       
        <div class="py-1" role="none">
-              <a href="{{ route('fashion.pakaianpria') }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Pakaian Pria</a>
+              <a href="{{ route('product.paginate.produk', ['kategori' => 'pakaian-pria']) }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Pakaian Pria</a>
      
-              <a href="{{ route('fashion.pakaianwanita') }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Pakaian Wanita</a>
+              <a href="{{ route('product.paginate.produk', ['kategori' => 'pakaian-wanita']) }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Pakaian Wanita</a>
      
-              <a href="{{ route('fashion.taspria') }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Tas Pria</a>
+              <a href="{{ route('product.paginate.produk', ['kategori' => 'tas-pria']) }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Tas Pria</a>
               
-              <a href="{{ route('fashion.taswanita') }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Tas Wanita</a>
+              <a href="{{ route('product.paginate.produk', ['kategori' => 'pakaian-wanita']) }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Tas Wanita</a>
               
-              <a href="{{ route('fashion.aksesoris') }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Aksesoris</a>
+              <a href="{{ route('product.paginate.produk', ['kategori' => 'aksesoris']) }}" class="text-secondary hover:bg-primary-dark hover:text-white block px-4 py-2 text-sm" role="menuitem">Aksesoris</a>
       </div>
   </div>
 </div>
