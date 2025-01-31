@@ -10,26 +10,13 @@ Route::get('/', [ProductController::class, 'home'])->name('product.paginate.home
 
 Route::get('/home', [ProductController::class, 'home'])->name('product.paginate.home');
 
-Route::get('/produk', [ProductController::class, 'allProducts'])->name('product.paginate.produk');
+Route::get('/produk/{kategori?}', [ProductController::class, 'products'])->name('product.paginate.produk');
 
 Route::get('/detail/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/UMKM', [ProductController::class, 'umkm'])->name('umkm');
 
 Route::get('/fashion', [ProductController::class, 'fashion'])->name('fashion');
-
-Route::prefix('fashion')->name('fashion.')->group(function () {
-    Route::get('/pakaian-pria', [ProductController::class, 'pakaianPria'])->name('pakaianpria');
-
-    Route::get('/pakaian-wanita', [ProductController::class, 'pakaianWanita'])->name('pakaianwanita');
-    
-    Route::get('/tas-pria', [ProductController::class, 'tasPria'])->name('taspria');
-    
-    Route::get('/tas-wanita', [ProductController::class, 'tasWanita'])->name('taswanita');
-    
-    Route::get('/aksesoris', [ProductController::class, 'aksesoris'])->name('aksesoris');
-});
-
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
