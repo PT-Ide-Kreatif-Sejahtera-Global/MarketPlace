@@ -57,7 +57,7 @@ class ProductController extends Controller
     public function umkm()
     {
         $products = DB::table('products')
-            ->where('produk_diskon', 'Y')
+            ->where('produk_diskon', 'Y') 
             ->paginate(12);
 
         return view('UMKM', [
