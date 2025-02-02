@@ -9,38 +9,38 @@
 
         <!-- Products Grid -->
         <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4">
-            @foreach ($product as $products)
-                <x-product-card :product="$products" />
+            @foreach ($kategori ? $products->where('kategori', $kategori) : $products as $product)
+                <x-product-card :product="$product" />
             @endforeach
         </div>
 
         <!-- Pagination -->
         <div class="mt-12">
             <nav class="flex justify-center items-center">
-                <ul class="flex space-x-2">
-                    @if ($product->onFirstPage())
+                <ul class="flex space-x-2 items-center">
+                    @if ($products->onFirstPage())
                         <li class="px-4 py-2 text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">&laquo; Prev</li>
                     @else
                         <li>
-                            <a href="{{ $product->previousPageUrl() }}"
+                            <a href="{{ $products->previousPageUrl() }}"
                                 class="px-4 py-2 bg-white text-primary-dark rounded-lg hover:bg-emerald-50 transition duration-300">
                                 &laquo; Prev
                             </a>
                         </li>
                     @endif
-
-                    @foreach ($product->getUrlRange(1, $product->lastPage()) as $page => $url)
+        
+                    @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                         <li>
                             <a href="{{ $url }}"
-                                class="px-4 py-2 rounded-lg {{ $page == $product->currentPage() ? 'bg-primary-dark text-white' : 'bg-white text-primary-dark hover:bg-emerald-50' }} transition duration-300">
+                                class="px-4 py-2 rounded-lg {{ $page == $products->currentPage() ? 'bg-primary-dark text-white' : 'bg-white text-primary-dark hover:bg-emerald-50' }} transition duration-300">
                                 {{ $page }}
                             </a>
                         </li>
                     @endforeach
-
-                    @if ($product->hasMorePages())
+        
+                    @if ($products->hasMorePages())
                         <li>
-                            <a href="{{ $product->nextPageUrl() }}"
+                            <a href="{{ $products->nextPageUrl() }}"
                                 class="px-4 py-2 bg-white text-primary-dark rounded-lg hover:bg-emerald-50 transition duration-300">
                                 Next &raquo;
                             </a>
@@ -61,12 +61,14 @@
     $(document).ready(function() {
         $('#search-input').on('input', function() {
             var query = $(this).val();
+            var kategori = <?php echo json_encode($kategori); ?>
 
             $.ajax({
                 url: '{{ route('search') }}',
                 method: 'GET',
                 data: {
-                    query: query
+                    query: query,
+                    kategori: kategori
                 },
                 success: function(data) {
                     $('#product-list').html(data);

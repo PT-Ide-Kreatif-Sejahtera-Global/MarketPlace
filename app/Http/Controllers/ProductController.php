@@ -41,11 +41,19 @@ class ProductController extends Controller
         return view('home', compact('product', 'title'));
     }
 
-    public function allProducts()
+    public function products($kategori = null)
     {
-        $title = 'All Products';
-        $product = Product::latest()->paginate(15);
-        return view('allProduct', compact('product', 'title'));
+        if ($kategori) {
+            $kategori = str_replace("-", " ", $kategori);
+            $title = 'Koleksi '.ucwords($kategori);
+            $products = DB::table('products')
+                ->where('kategori', $kategori)
+                ->paginate(15);
+        } else {
+            $title = 'All Products';
+            $products = Product::latest()->paginate(15);
+        }
+        return view('product', compact('products', 'title', 'kategori'));
     }
 
     public function show($id)
@@ -86,65 +94,5 @@ class ProductController extends Controller
     {
         $products = DB::table('products')->where('kategori', 'Fashion')->get();
         return view('fashion', ['title' => 'Fashion', 'products' => $products]);
-    }
-
-    public function pakaianPria()
-    {
-        $products = DB::table('products')
-            ->where('kategori', 'pakaian pria')
-            ->paginate(12);
-
-        return view('pakaianpria', [
-            'title' => 'Koleksi Pakaian Pria',
-            'products' => $products
-        ]);
-    }
-
-    public function pakaianWanita()
-    {
-        $products = DB::table('products')
-            ->where('kategori', 'pakaian wanita')
-            ->paginate(12);
-
-        return view('pakaianwanita', [
-            'title' => 'Koleksi Pakaian Wanita',
-            'products' => $products
-        ]);
-    }
-
-    public function tasPria()
-    {
-        $products = DB::table('products')
-        ->where('kategori', 'tas pria')
-        ->paginate(12);
-
-    return view('taspria', [
-        'title' => 'Koleksi Tas Pria',
-        'products' => $products
-    ]);
-    }
-
-    public function tasWanita()
-    {
-        $products = DB::table('products')
-            ->where('kategori', 'tas wanita')
-            ->paginate(12);
-
-        return view('taswanita', [
-            'title' => 'Koleksi Tas Wanita',
-            'products' => $products
-        ]);
-    }
-
-    public function aksesoris()
-    {
-        $products = DB::table('products')
-            ->where('kategori', 'aksesoris')
-            ->paginate(12);
-
-        return view('aksesoris', [
-            'title' => 'Koleksi Aksesoris',
-            'products' => $products
-        ]);
     }
 }
