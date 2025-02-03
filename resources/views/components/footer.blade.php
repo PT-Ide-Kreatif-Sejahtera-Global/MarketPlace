@@ -18,12 +18,12 @@
                 </h3>
                 <ul class="space-y-3">
                     <li>
-                        <a href="{{ url('/') }}" class="text-white/80 hover:text-white transition-colors duration-200 group inline-flex items-center">
+                        <a href="{{ route('product.paginate.produk') }}" class="text-white/80 hover:text-white transition-colors duration-200 group inline-flex items-center">
                             <span class="transform group-hover:translate-x-2 transition-transform duration-200">Produk</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/UMKM') }}" class="text-white/80 hover:text-white transition-colors duration-200 group inline-flex items-center">
+                        <a href="{{ route('umkm') }}" class="text-white/80 hover:text-white transition-colors duration-200 group inline-flex items-center">
                             <span class="transform group-hover:translate-x-2 transition-transform duration-200">UMKM</span>
                         </a>
                     </li>
@@ -36,10 +36,10 @@
                     Contact Us
                 </h3>
                 <div class="space-y-3">
-                    <p class="text-white/80 flex items-center">
+                    <a href="tel:+6285161609396" class="text-white/80 flex items-center hover:text-white transform hover:translate-x-2 transition-transform duration-200">
                         <i class="fas fa-phone mr-2"></i>
                         +62 851-6160-9396
-                    </p>
+                    </a>
                 </div>
                 <div class="flex space-x-6 mt-6">
                     <a href="https://www.facebook.com/ideathings.id" 
