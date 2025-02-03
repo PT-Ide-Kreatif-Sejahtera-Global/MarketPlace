@@ -95,4 +95,6 @@ class ProductController extends Controller
         $products = DB::table('products')->where('kategori', 'Fashion')->get();
         return view('fashion', ['title' => 'Fashion', 'products' => $products]);
     }
+
+   
 }
