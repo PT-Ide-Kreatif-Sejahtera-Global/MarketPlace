@@ -65,7 +65,7 @@ class ProductController extends Controller
     public function umkm()
     {
         $products = DB::table('products')
-            ->where('produk_diskon', 'Y')
+            ->where('produk_diskon', 'Y') 
             ->paginate(12);
 
         return view('UMKM', [
@@ -95,4 +95,6 @@ class ProductController extends Controller
         $products = DB::table('products')->where('kategori', 'Fashion')->get();
         return view('fashion', ['title' => 'Fashion', 'products' => $products]);
     }
+
+   
 }
