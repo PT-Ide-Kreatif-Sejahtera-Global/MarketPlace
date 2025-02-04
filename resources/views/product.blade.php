@@ -9,9 +9,11 @@
 
         <!-- Products Grid -->
         <div id="product-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4">
-            @foreach ($kategori ? $products->where('kategori', $kategori) : $products as $product)
+            @forelse ($kategori ? $products->where('kategori', $kategori) : $products as $product)
                 <x-product-card :product="$product" />
-            @endforeach
+            @empty
+                <p class="text-center text-secondary">Produk tidak ditemukan.</p>
+            @endforelse
         </div>
 
         <!-- Pagination -->

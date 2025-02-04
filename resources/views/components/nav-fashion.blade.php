@@ -3,7 +3,13 @@
       <button 
           type="button" 
           @click="isOpen = !isOpen" 
-          class="{{ request()->is('fashion/*') ? 'text-primary-dark font-bold' : 'text-secondary' }} inline-flex w-full justify-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark" 
+          class="{{ in_array(request()->path(), [
+                        'produk/pakaian-pria',
+                        'produk/pakaian-wanita',
+                        'produk/tas-pria',
+                        'produk/tas-wanita',
+                        'produk/aksesoris'
+                    ]) ? 'text-primary-dark font-bold' : 'text-secondary' }} inline-flex w-full justify-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark" 
           id="menu-button" 
           aria-expanded="true" 
           aria-haspopup="true">
