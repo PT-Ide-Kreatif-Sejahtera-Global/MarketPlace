@@ -3,6 +3,15 @@
     <!-- Bagian Gambar -->
     <a href="{{ route('product.show', $product->id) }}" class="relative rounded-2xl overflow-hidden">
         <img src="{{ url($product->img) }}" alt="{{ $product->produk }}" class="w-full aspect-square object-cover transform transition-transform duration-300 group-hover:scale-105">
+
+        <!-- Bagian status Stok tersedia atau tidak -->
+        @if ($product->jumlah == 0)
+            <div class="absolute w-full h-full top-0 left-0 bg-secondary-subtle/50 flex justify-center items-center transform transition-transform duration-300 group-hover:scale-105">
+                <div class="w-3/5 p-2 md:p-3 bg-secondary/85 text-sm lg:text-base text-white/95 text-center font-medium aspect-square flex justify-center items-center rounded-full">
+                    <span>Stok Habis</span>
+                </div>
+            </div>
+        @endif
     </a>
 
     <!-- Isi konten -->
@@ -40,12 +49,5 @@
             class="block w-full text-center ring-1 ring-primary-dark text-primary-dark px-4 py-1 md:px-6 md:py-2 rounded-full font-medium transition-all duration-500 ease-out hover:bg-primary-dark hover:text-white hover:ring-primary-dark">
             View Details
         </a>
-    </div>
-
-    <!-- Bagian status Stok tersedia atau tidak -->
-    <div
-        class="absolute top-4 right-4 text-white text-[10px] md:text-xs font-semibold px-2 md:px-3 py-1 rounded-full 
-   {{ $product->jumlah > 0 ? 'bg-green-500' : 'bg-red-500' }}">
-        {{ $product->jumlah > 0 ? 'Stok Tersedia' : 'Stok Habis' }}
     </div>
 </div>
