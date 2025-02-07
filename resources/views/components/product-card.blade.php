@@ -1,7 +1,7 @@
 <div
-    class="group h-full grid relative bg-white rounded-2xl drop-shadow-[0_0_5px_rgb(0,0,0,0.15)] overflow-hidden hover:drop-shadow-[0_0_8px_rgb(0,0,0,0.15)] transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+    class="group h-full grid relative bg-white rounded-lg md:rounded-2xl drop-shadow-[0_0_5px_rgb(0,0,0,0.15)] overflow-hidden hover:drop-shadow-[0_0_8px_rgb(0,0,0,0.15)] transition-all duration-300 ease-in-out transform hover:-translate-y-1">
     <!-- Bagian Gambar -->
-    <a href="{{ route('product.show', $product->id) }}" class="relative rounded-2xl overflow-hidden">
+    <a href="{{ route('product.show', $product->id) }}" class="relative rounded-lg md:rounded-2xl overflow-hidden">
         <img src="{{ url($product->img) }}" alt="{{ $product->produk }}" class="w-full aspect-square object-cover transform transition-transform duration-300 group-hover:scale-105">
 
         <!-- Bagian status Stok tersedia atau tidak -->
@@ -15,7 +15,7 @@
     </a>
 
     <!-- Isi konten -->
-    <div class="p-2 md:p-3 h-full flex flex-col justify-between gap-1 md:gap-2">
+    <div class="p-2 md:p-3 h-full flex flex-col justify-between gap-1.5 md:gap-2">
         <div>
             <!-- Bagian Kategori -->
             <p class="text-[10px] md:text-xs font-medium text-secondary uppercase tracking-wide">
@@ -46,8 +46,8 @@
 
         <!-- Bagian Tombol -->
         <a href="{{ route('product.show', $product->id) }}"
-            class="block w-full text-center ring-1 ring-primary-dark text-primary-dark px-4 py-1 md:px-6 md:py-2 rounded-full font-medium transition-all duration-500 ease-out hover:bg-primary-dark hover:text-white hover:ring-primary-dark">
-            View Details
+            class="block w-full text-center text-xs md:text-base ring-1 ring-primary-dark text-primary-dark px-4 py-1.5 md:px-6 md:py-2 rounded-full font-medium transition-all duration-500 ease-out hover:bg-primary-dark hover:text-white hover:ring-primary-dark">
+            Lihat Produk
         </a>
     </div>
 </div>
