@@ -4,13 +4,13 @@
         type="button" 
         @click="isOpenRumah = !isOpenRumah" 
         class="{{ in_array(request()->path(), [
-                        'produk/electronic-spot',
-                        'produk/home-spot',
-                        'produk/clean-spot',
-                        'produk/travel-spot',
-                        'produk/stationery-spot',
-                        'produk/cook-spot'
-                    ]) ? 'text-primary-dark font-bold' : 'text-secondary' }} inline-flex w-full justify-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark" 
+                    'produk/electronic-spot',
+                    'produk/home-spot',
+                    'produk/clean-spot',
+                    'produk/travel-spot',
+                    'produk/stationery-spot',
+                    'produk/cook-spot'
+                ]) ? 'text-primary-dark font-bold' : 'text-secondary' }} inline-flex item-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark" 
         id="menu-button" 
         aria-expanded="true" 
         aria-haspopup="true">
@@ -37,25 +37,17 @@
         
         <!-- Kategori Utama -->
         <div class="py-1" role="none">
-
-            {{-- {{ route('rumah-tangga') }} product.paginate.produk  --}}
-            <!-- Perabotan Rumah -->
             <a href="{{ route('product.paginate.produk', ['kategori' => 'electronic-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Electronic Spot</a>
-            
-            <!-- Dekorasi Rumah -->
+
             <a href="{{ route('product.paginate.produk', ['kategori' => 'home-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Home Spot</a>
 
-            <!-- Dekorasi Rumah -->
             <a href="{{ route('product.paginate.produk', ['kategori' => 'clean-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Clean Spot</a>
 
-            <!-- Dekorasi Rumah -->
             <a href="{{ route('product.paginate.produk', ['kategori' => 'travel-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Travel Spot</a>
 
-             <!-- Stationary spot -->
             <a href="{{ route('product.paginate.produk', ['kategori' => 'stationery-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Stationery Spot</a>
 
-             <!-- Cook spot -->
-             <a href="{{ route('product.paginate.produk', ['kategori' => 'cook-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Cook Spot</a>
+            <a href="{{ route('product.paginate.produk', ['kategori' => 'cook-spot']) }}" class="block px-4 py-2 text-sm text-secondary hover:bg-primary-dark hover:text-white" role="menuitem">Cook Spot</a>
         </div>
     </div>
 </div>
