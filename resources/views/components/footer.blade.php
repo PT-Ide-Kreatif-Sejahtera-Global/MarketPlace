@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('umkm') }}" class="text-white/80 hover:text-white transition-colors duration-200 group inline-flex items-center">
+                        <a href="{{ route('product.paginate.produk', ['kategori' => 'umkm']) }}" class="text-white/80 hover:text-white transition-colors duration-200 group inline-flex items-center">
                             <span class="transform group-hover:translate-x-2 transition-transform duration-200">UMKM</span>
                         </a>
                     </li>

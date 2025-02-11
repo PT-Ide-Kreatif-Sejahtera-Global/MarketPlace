@@ -28,7 +28,7 @@
                     <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-dark scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 </x-nav-rumah>
 
-                <a href="{{ route('umkm') }}" class="{{ request()->is('UMKM') ? 'text-primary-dark font-bold' : 'text-secondary' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark">
+                <a href="{{ route('product.paginate.produk', ['kategori' => 'umkm']) }}" class="{{ request()->is('produk/umkm') ? 'text-primary-dark font-bold' : 'text-secondary' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark">
                     UMKM
                 </a>
             </div>
@@ -76,7 +76,7 @@
                 <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-dark scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
             </x-nav-rumah>
 
-             <a href="{{ route('umkm') }}" class="{{ request()->is('UMKM') ? 'text-primary-dark font-bold' : 'text-secondary' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark">
+            <a href="{{ route('product.paginate.produk', ['kategori' => 'umkm']) }}" class="{{ request()->is('/produk/umkm') ? 'text-primary-dark font-bold' : 'text-secondary' }} px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark">
                 UMKM
             </a> 
         </div>
