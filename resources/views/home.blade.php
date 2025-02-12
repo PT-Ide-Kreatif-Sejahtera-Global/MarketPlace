@@ -1,4 +1,4 @@
-<x-home-layout>
+<x-layout>
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="w-full mt-16 relative rounded-2xl overflow-hidden">
             <div class="absolute w-full h-full sm:h-1/2 bg-gradient-to-b from-emerald-50/90 to-transparent z-10"></div>
@@ -40,4 +40,4 @@
             <x-slot:carouselTitle>Produk Rumah Tangga Terbaru</x-slot:carouselTitle>
         </x-product-slide>
     </div>
-</x-home-layout>
+</x-layout>
