@@ -1,7 +1,5 @@
-<x-layout>
-	<x-slot:title>{{ $title }}</x-slot:title>
-	
-	<div class="min-h-screen">
+<x-layout>	
+	<div class="min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
 		<!-- Breadcrumb -->
 		<div class="container mx-auto px-4 py-4">
 			<nav class="text-gray-500 text-sm">
