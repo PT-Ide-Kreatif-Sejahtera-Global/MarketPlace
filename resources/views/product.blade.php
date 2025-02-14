@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6 md:pt-20 md:pb-8">
         <h2 class="mb-2 md:mb-3 text-xl font-semibold text-secondary-dark sm:text-2xl">{{ $title }}</h2>
         <div class="w-full flex flex-col gap-5 md:flex-row md:justify-between md:items-center mb-8">
             <nav class="flex w-full overflow-hidden" aria-label="Breadcrumb">
@@ -51,44 +51,7 @@
             @endforelse
         </div>
 
-        <!-- Pagination -->
-        <div class="mt-12">
-            <nav class="flex justify-center items-center">
-                <ul class="flex space-x-2 items-center">
-                    @if ($products->onFirstPage())
-                        <li class="px-4 py-2 text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">&laquo; Prev</li>
-                    @else
-                        <li>
-                            <a href="{{ $products->previousPageUrl() }}"
-                                class="px-4 py-2 bg-white text-primary-dark rounded-lg hover:bg-emerald-50 transition duration-300">
-                                &laquo; Prev
-                            </a>
-                        </li>
-                    @endif
-        
-                    @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
-                        <li>
-                            <a href="{{ $url }}"
-                                class="px-4 py-2 rounded-lg {{ $page == $products->currentPage() ? 'bg-primary-dark text-white' : 'bg-white text-primary-dark hover:bg-emerald-50' }} transition duration-300">
-                                {{ $page }}
-                            </a>
-                        </li>
-                    @endforeach
-        
-                    @if ($products->hasMorePages())
-                        <li>
-                            <a href="{{ $products->nextPageUrl() }}"
-                                class="px-4 py-2 bg-white text-primary-dark rounded-lg hover:bg-emerald-50 transition duration-300">
-                                Next &raquo;
-                            </a>
-                        </li>
-                    @else
-                        <li class="px-4 py-2 text-gray-400 bg-gray-100 rounded-lg cursor-not-allowed">Next &raquo;</li>
-                    @endif
-                </ul>
-            </nav>
-        </div>
-
+        <x-pagination :products="$products" />
     </div>
 </x-layout>
 
