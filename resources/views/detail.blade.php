@@ -1,7 +1,7 @@
 <x-layout>	
 	<div class="min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-5 md:pt-20 md:pb-8">
 		<!-- Breadcrumb -->
-		<div class="container mx-auto px-4 py-2 md:py-4">
+		<div class="container mx-auto px-4 py-2.5 md:py-4">
 			<nav class="flex w-full overflow-hidden" aria-label="Breadcrumb">
 				<ol class="flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse w-full">
 					<li class="flex items-center shrink-0">

@@ -43,11 +43,5 @@
                 </div>
             </div>
         </div>
-
-        <!-- Bagian Tombol -->
-        <a href="{{ route('product.show', $product->id) }}"
-            class="block w-full text-center text-xs md:text-base ring-1 ring-primary-dark text-primary-dark px-4 py-1.5 md:px-6 md:py-2 rounded-full font-medium transition-all duration-500 ease-out hover:bg-primary-dark hover:text-white hover:ring-primary-dark">
-            Lihat Produk
-        </a>
     </div>
 </div>
