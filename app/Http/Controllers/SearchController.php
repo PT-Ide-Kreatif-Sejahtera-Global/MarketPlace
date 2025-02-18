@@ -16,9 +16,12 @@ class SearchController extends Controller
             $products = DB::table('products')
                           ->where('produk', 'like', '%' . $query . '%')
                           ->where('kategori', 'like', '%' . $kategori . '%')
-                          ->get();
+                          ->when(!empty($query), function ($queryBuilder) use ($query) {
+                                return $queryBuilder->orWhere('kategori', 'like', '%' . $query . '%');
+                            })
+                          ->latest()->paginate(15);
         } else {
-            $products = DB::table('products')->get();
+            $products = DB::table('products')->latest()->paginate(15);
         }
 
         return response()->view('partials.product-list', ['products' => $products]);
