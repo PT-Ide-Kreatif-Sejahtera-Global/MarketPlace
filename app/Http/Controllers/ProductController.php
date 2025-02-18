@@ -34,23 +34,5 @@ class ProductController extends Controller
     {
         $product = DB::table('products')->where('id', $id)->first();
         return view('detail', ['title' => 'Detail Produk', 'product' => $product]);
-    }
-
-	public function searchUmkm(Request $request)
-	{
-		$query = $request->input('query');
-		$products = Product::where('kategori', 'UMKM')
-						->where(function($q) use ($query) {
-							$q->where('produk', 'like', "%{$query}%")
-								->orWhere('description', 'like', "%{$query}%");
-						})
-						->paginate(12);
-		
-		return view('UMKM', [
-			'title' => 'Produk Diskon',
-			'products' => $products
-		]);
-	}
-
-   
+    }   
 }
