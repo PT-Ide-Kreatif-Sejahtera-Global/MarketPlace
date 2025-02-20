@@ -42,6 +42,11 @@
             </x-search-bar>
         </div>
 
+        <div id="loading" class="hidden text-center py-5">
+            <span class="animate-spin border-4 border-gray-300 border-t-primary-dark rounded-full h-10 w-10 inline-block"></span>
+            <p class="text-gray-500 text-sm">Loading...</p>
+        </div>
+
         <!-- Products Grid -->
         <div id="product-list" class="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
             @forelse ($kategori ? $products->where('kategori', $kategori) : $products as $product)
@@ -59,9 +64,26 @@
 
 <script>
     $(document).ready(function() {
-        $('#search-input').on('input', function() {
-            var query = $(this).val();
+        $('#search-input').on('focus', function() {
+            $('#search-hint').removeClass('hidden');
+            $('#search-hint').addClass('flex');
+        });
+
+        $('#search-input').on('blur', function() {
+            if ($('#search-input').val().trim() === '') {
+                $('#search-hint').addClass('hidden');
+                $('#search-hint').removeClass('flex');
+            }
+        });
+
+        $('#search-form').on('submit', function(event) {
+            event.preventDefault();
+
+            var query = $('#search-input').val();
             var kategori = <?php echo json_encode($kategori); ?>
+
+            $('#product-list').addClass('hidden');
+            $('#loading').removeClass('hidden');
 
             $.ajax({
                 url: '{{ route('search') }}',
@@ -72,6 +94,10 @@
                 },
                 success: function(data) {
                     $('#product-list').html(data);
+                },
+                complete: function() {
+                    $('#product-list').removeClass('hidden');
+                    $('#loading').addClass('hidden');
                 }
             });
         });
