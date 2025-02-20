@@ -26,9 +26,11 @@
             $fashionProducts = $product->whereIn('kategori', $fashionCategories)->take(10);
         @endphp
 
-        <x-product-slide :products="$fashionProducts" :carouselRoute="route('product.paginate.produk')">
-            <x-slot:carouselTitle>Produk Fashion Terbaru</x-slot:carouselTitle>
-        </x-product-slide>
+        @if (!empty($fashionProducts))
+            <x-product-slide :products="$fashionProducts" :carouselRoute="route('product.paginate.produk')">
+                <x-slot:carouselTitle>Produk Fashion Terbaru</x-slot:carouselTitle>
+            </x-product-slide>
+        @endif
 
         <!-- Rumah Tangga Slider -->
         @php
@@ -36,8 +38,10 @@
             $houseProducts = $product->whereIn('kategori', $houseCategories)->take(10);
         @endphp
 
-        <x-product-slide :products="$houseProducts" :carouselRoute="route('product.paginate.produk')">
-            <x-slot:carouselTitle>Produk Rumah Tangga Terbaru</x-slot:carouselTitle>
-        </x-product-slide>
+        @if (!empty($houseProducts))
+            <x-product-slide :products="$houseProducts" :carouselRoute="route('product.paginate.produk')">
+                <x-slot:carouselTitle>Produk Rumah Tangga Terbaru</x-slot:carouselTitle>
+            </x-product-slide>
+        @endif
     </div>
 </x-layout>
