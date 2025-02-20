@@ -5,7 +5,7 @@
     <button 
         type="button" 
         @click="isOpen = !isOpen" 
-        class="inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark"
+        class="inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-primary-dark text-secondary"
         id="menu-button" 
         aria-expanded="true" 
         aria-haspopup="true">
