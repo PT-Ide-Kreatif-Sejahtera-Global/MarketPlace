@@ -13,7 +13,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0ead75"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
             </a>
         </div>
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper !mx-0 !w-fit">
             @foreach ($products as $item)
                 <div class="swiper-slide !h-auto">
                     <x-product-card :product="$item" />
@@ -28,11 +28,11 @@
     document.addEventListener("DOMContentLoaded", function () {
         new Swiper(".swiper-container", {
             slidesPerView: 2,
-            spaceBetween: 12,
+            spaceBetween: 14,
             breakpoints: {
-                576: { slidesPerView: 3, spaceBetween: 14 },
-                768: { slidesPerView: 4, spaceBetween: 15 },
-                1024: { slidesPerView: 6, spaceBetween: 16 },
+                576: { slidesPerView: 3, spaceBetween: 16 },
+                768: { slidesPerView: 4, spaceBetween: 18 },
+                1024: { slidesPerView: 6, spaceBetween: 20 },
             },
             mousewheel: {
                 forceToAxis: true,
