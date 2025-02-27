@@ -20,24 +20,28 @@
     </div>
 
     <div class="w-full mt-0.5 mb-4 md:mt-2 md:mb-6">
-        <!-- Fashion Slider -->
-        @php
-            $fashionCategories = ['pakaian pria', 'pakaian wanita', 'tas pria', 'tas wanita', 'aksesoris'];
-            $fashionProducts = $product->whereIn('kategori', $fashionCategories)->take(10);
-        @endphp
-
-        <x-product-slide :products="$fashionProducts" :carouselRoute="route('product.paginate.produk')">
-            <x-slot:carouselTitle>Produk Fashion Terbaru</x-slot:carouselTitle>
-        </x-product-slide>
-
         <!-- Rumah Tangga Slider -->
         @php
             $houseCategories = ['electronic spot', 'home spot', 'clean spot', 'travel spot', 'stationery spot', 'cook spot'];
             $houseProducts = $product->whereIn('kategori', $houseCategories)->take(10);
         @endphp
 
-        <x-product-slide :products="$houseProducts" :carouselRoute="route('product.paginate.produk')">
-            <x-slot:carouselTitle>Produk Rumah Tangga Terbaru</x-slot:carouselTitle>
-        </x-product-slide>
+        @if (!empty($houseProducts))
+            <x-product-slide :products="$houseProducts" :carouselRoute="route('product.paginate.produk')">
+                <x-slot:carouselTitle>Produk Rumah Tangga Terbaru</x-slot:carouselTitle>
+            </x-product-slide>
+        @endif
+
+        <!-- Fashion Slider -->
+        @php
+            $fashionCategories = ['pakaian pria', 'pakaian wanita', 'tas pria', 'tas wanita', 'aksesoris'];
+            $fashionProducts = $product->whereIn('kategori', $fashionCategories)->take(6);
+        @endphp
+
+        @if (!empty($fashionProducts))
+            <x-product-slide :products="$fashionProducts" :carouselRoute="route('product.paginate.produk')">
+                <x-slot:carouselTitle>Produk Fashion Terbaru</x-slot:carouselTitle>
+            </x-product-slide>
+        @endif
     </div>
 </x-layout>
