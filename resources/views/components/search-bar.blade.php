@@ -1,4 +1,4 @@
-<form id="search-form" class="relative min-w-80">
+<form id="search-form" class="relative min-w-full md:min-w-80">
     <input type="text" name="query" id="search-input"
         class="w-full pr-2 py-2 pl-10 text-gray-700 text-sm md:text-base bg-transparent border border-primary rounded-full focus:outline-none focus:ring-2 focus:ring-primary-dark focus:border-transparent shadow-sm relative z-10"
         placeholder={{ $placeholder ?? 'Search...' }} />
