@@ -73,7 +73,7 @@
 
 					<!-- Product Description -->
 					<div class="prose max-w-none text-secondary text-sm md:text-base">
-						<p class="whitespace-pre-line break-words">{{ $product->description }}</p>
+						<p class="whitespace-pre-line break-words">{!! str_replace('<a ', '<a class="text-blue-500 hover:text-blue-700 underline" ', $product->description) !!}</p>
 					</div>
 
 					<!-- Action Buttons -->

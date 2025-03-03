@@ -3,7 +3,7 @@
         <div class="flex py-4 md:py-5 items-center justify-between">
             <!-- Logo and text -->
             <div class="flex-shrink-0 flex items-center space-x-3 transform transition-transform hover:scale-105">
-                <a href="{{ url('/') }}" class="flex items-center">
+                <a href="{{ url('https://ideathings.id/') }}" class="flex items-center">
                     <img class="h-10 md:h-12 w-auto rounded-full" src="{{ asset('/Img/logo.png') }}" alt="iDeaThings">
                     <div class="ml-3 text-secondary font-extrabold text-lg md:text-xl tracking-tight">
                         iDeaThings
