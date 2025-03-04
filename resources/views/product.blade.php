@@ -14,7 +14,7 @@
 					</li>
                     @if (request()->is('produk'))
                         <li class="flex items-center shrink-0">
-                            <svg class="h-5 w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="h-4 w-4 md:h-5 md:w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
                             </svg>
                             <span class="ms-1 text-xs md:text-sm font-medium text-secondary-light md:ms-2 shrink-0">Produk</span>
@@ -22,13 +22,13 @@
                     @endif
                     @if (request()->is('produk/*'))
                         <li class="flex items-center shrink-0">
-                            <svg class="h-5 w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="h-4 w-4 md:h-5 md:w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
                             </svg>
                             <a href="{{ route('product.paginate.produk') }}" class="ms-1 text-xs md:text-sm font-medium text-secondary-light hover:text-primary-dark md:ms-2 shrink-0">Produk</a>
                         </li>
                         <li aria-current="page" class="flex items-center min-w-16">
-                            <svg class="h-5 w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg class="h-4 w-4 md:h-5 md:w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
                             </svg>
                             <span class="ms-1 text-xs md:text-sm font-medium text-secondary-light md:ms-2 truncate w-full block">{{ ucwords($kategori) }}</span>

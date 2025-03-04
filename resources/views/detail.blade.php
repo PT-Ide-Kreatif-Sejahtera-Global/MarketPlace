@@ -1,7 +1,7 @@
 <x-layout>	
 	<div class="min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-5 md:pt-20 md:pb-8">
 		<!-- Breadcrumb -->
-		<div class="container mx-auto px-4 py-2.5 md:py-4">
+		<div class="container mx-auto px-2 md:px-4 py-2.5 md:py-4">
 			<nav class="flex w-full overflow-hidden" aria-label="Breadcrumb">
 				<ol class="flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse w-full">
 					<li class="flex items-center shrink-0">
@@ -13,13 +13,13 @@
 						</a>
 					</li>
 					<li class="flex items-center shrink-0">
-						<svg class="h-5 w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+						<svg class="h-4 w-4 md:h-5 md:w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
 						</svg>
 						<a href="{{ route('product.paginate.produk') }}" class="ms-1 text-xs md:text-sm font-medium text-secondary-light hover:text-primary-dark md:ms-2 shrink-0">Produk</a>
 					</li>
 					<li class="flex items-center min-w-16">
-						<svg class="h-5 w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+						<svg class="h-4 w-4 md:h-5 md:w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
 						</svg>
 						<a href="{{ route('product.paginate.produk', ['kategori' => $product->kategori]) }}" class="ms-1 text-xs md:text-sm font-medium text-secondary-light hover:text-primary-dark md:ms-2 truncate w-full block">
@@ -27,7 +27,7 @@
 						</a>
 					</li>
 					<li aria-current="page" class="flex items-center min-w-0">
-						<svg class="h-5 w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+						<svg class="h-4 w-4 md:h-5 md:w-5 text-gray-400 rtl:rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7" />
 						</svg>
 						<span class="ms-1 text-xs md:text-sm font-medium text-secondary-light md:ms-2 truncate w-full block">
@@ -39,8 +39,7 @@
 		</div>
 
 		<!-- Main Content -->
-		<div class="container mx-auto px-4 pt-2 pb-4 md:pt-4 md:pb-8">
-			{{-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-12"> --}}
+		<div class="container mx-auto px-2 md:px-4 pt-2 pb-4 md:pt-4 md:pb-8">
 			<div class="w-full flex flex-col md:flex-row items-start gap-5 md:gap-10">
 				<!-- Product Image Section -->
 				<img src="{{ $product->img ? asset($product->img) : asset('img/product1.jpg') }}" 
@@ -74,7 +73,7 @@
 
 					<!-- Product Description -->
 					<div class="prose max-w-none text-secondary text-sm md:text-base">
-						<p class="whitespace-pre-line break-words">{{ $product->description }}</p>
+						<p class="whitespace-pre-line break-words">{!! str_replace('<a ', '<a class="text-blue-500 hover:text-blue-700 underline" ', $product->description) !!}</p>
 					</div>
 
 					<!-- Action Buttons -->

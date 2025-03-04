@@ -22,10 +22,10 @@ class ProductController extends Controller
             $title = 'Koleksi '.ucwords($kategori);
             $products = DB::table('products')
                 ->where('kategori', $kategori)
-                ->paginate(15);
+                ->paginate(20);
         } else {
             $title = 'All Products';
-            $products = Product::latest()->paginate(15);
+            $products = Product::latest()->paginate(20);
         }
         return view('product', compact('products', 'title', 'kategori'));
     }
