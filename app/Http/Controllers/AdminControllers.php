@@ -6,8 +6,7 @@ use App\Models\Product;
 
 class AdminControllers extends Controller {
 	public function index() {
-		$products = Product::paginate(10);
-		return view('admin.products.index',compact('products'));
+		return view('admin.dashboard');
 	}
 
 	public function updateDiscount(Request $request, Product $product)
