@@ -4,48 +4,50 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    // Menampilkan form login
-    public function showLoginForm()
+    public function index()
     {
         return view('auth.login');
     }
 
-    // Menangani login
     public function login(Request $request)
     {
-        // Validasi input
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
+        try {
+            $request->validate([
+                'email'    => 'email|required',
+                'password' => 'required|min:8'
+            ]);
+            
+            $credentials = $request->only(['email', 'password']);
+            if (!Auth::attempt($credentials)) {
+                return redirect()->route('login')
+                    ->withErrors(['login' => 'email atau password salah'])
+                    ->withInput();
+            }
 
-        if ($validator->fails()) {
+            $user = User::where('email', $request->email)->first();
+            if (!Hash::check($request->password, $user->password, [])) {
+                throw new \Exception('Invalid Credentials');
+            }
+
+            $token = $user->createToken('authToken')->plainTextToken;
+            return redirect()->route('admin.dashboard');
+        } catch (Exception $error) {
             return redirect()->route('login')
-                ->withErrors($validator)
+                ->withErrors(['login' => $error->getMessage()])
                 ->withInput();
         }
-
-        // Autentikasi pengguna
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            // Login berhasil
-            return redirect()->intended('/admin/products'); // redirect ke halaman admin jika sukses
-        }
-
-        // Jika autentikasi gagal
-        return redirect()->route('login')
-            ->withErrors(['email' => 'Email atau password salah.'])
-            ->withInput();
     }
 
-    // Menangani logout
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::logout();
-        return redirect()->route('login');
+        $request->user()->tokens()->delete();
+
+        return response()->json(['message' => 'Logged out']);
     }
 }

@@ -43,5 +43,16 @@
                 <x-slot:carouselTitle>Produk Fashion Terbaru</x-slot:carouselTitle>
             </x-product-slide>
         @endif
+
+        <!-- UMKM Slider -->
+        @php
+            $umkmProducts = $product->where('kategori', 'umkm')->take(6);
+        @endphp
+
+        @if (!empty($umkmProducts))
+            <x-product-slide :products="$umkmProducts" :carouselRoute="route('product.paginate.produk', ['kategori' => 'umkm'])">
+                <x-slot:carouselTitle>Produk UMKM</x-slot:carouselTitle>
+            </x-product-slide>
+        @endif
     </div>
 </x-layout>
