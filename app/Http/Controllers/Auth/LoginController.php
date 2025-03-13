@@ -47,7 +47,10 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
+        auth()->guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return response()->json(['message' => 'Logged out']);
+        return redirect()->route('product.paginate.home');
     }
 }
