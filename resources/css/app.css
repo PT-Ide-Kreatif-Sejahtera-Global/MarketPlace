@@ -6,3 +6,19 @@
 .tokopedia-button {
     @apply inline-block w-full text-center bg-[#3eb640] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#37a537] transition duration-300 shadow-md;
 }
+
+table.dataTable {
+    @apply rounded-lg overflow-hidden ring-1 ring-gray-200;
+}
+
+table.dataTable thead th {
+    @apply text-secondary-dark bg-gray-100;
+}
+
+table.dataTable tbody tr {
+    @apply border-b border-gray-300;
+}
+
+table.dataTable tbody tr:hover {
+    @apply bg-gray-50 cursor-pointer;
+}

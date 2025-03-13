@@ -22,5 +22,5 @@ Route::post('/login/auth', [LoginController::class, 'login'])->name('auth.login'
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/dashboard', [AdminControllers::class, 'index'])->name('admin.dashboard');
 
-    Route::post('/logout', [LoginController::class, 'logout']);
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
