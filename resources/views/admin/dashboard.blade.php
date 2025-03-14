@@ -3,7 +3,7 @@
     <section class="w-full my-6 flex flex-col gap-3">
         <div class="w-full flex justify-between items-center">
             <h2 class="text-xl font-semibold text-secondary-dark">Tabel Data Produk</h2>
-            <a href="#" class="bg-primary-dark hover:bg-emerald-600 text-white font-medium px-4 py-2.5 rounded-lg">Tambah Produk</a>
+            <a href="{{ route('admin.add.product') }}" class="bg-primary-dark hover:bg-emerald-600 text-white font-medium px-4 py-2.5 rounded-lg">Tambah Produk</a>
         </div>
         <table id="productTable" class="display" style="width:100%">
             <thead>
