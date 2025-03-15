@@ -6,18 +6,12 @@ use App\Models\Product;
 
 class AdminControllers extends Controller {
 	public function index() {
-		return view('admin.dashboard');
+		$products = Product::latest()->get();
+		return view('admin.dashboard', compact('products'));
 	}
 
-	public function updateDiscount(Request $request, Product $product)
+	public function addProduct()
 	{
-		$validate = $request->validate([
-			'discount_percentage' => 'required|numeric|min:0|max:100',
-			'discount_start' => 'required|date',
-			'discount_end' => 'required|date|after:discount_start'
-		]);
-
-		$product->update($validate);
-		return redirect()->back()->with('success', 'Discount updated successfully');
+		return view('admin.product-form');
 	}
 }

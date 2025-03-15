@@ -20,9 +20,7 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->decimal('harga', 10, 2);
             $table->string('link');
-            $table->timestamps(); // This will create 'created_at' and 'updated_at'
-            $table->decimal('harga_diskon', 10, 2);
-            $table->string('produk_diskon');
+            $table->timestamps();
         });
     }
 
