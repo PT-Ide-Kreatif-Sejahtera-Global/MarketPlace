@@ -46,7 +46,8 @@
                         </td>
 
                         <td>
-                            <a href="#" class="text-secondary underline">Edit</a>
+                            <a href="{{ route('admin.product.edit', $product->id) }}" class="text-secondary underline">Edit</a>
+
                             <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini?');" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
