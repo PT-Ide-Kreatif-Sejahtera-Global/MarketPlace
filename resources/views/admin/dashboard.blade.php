@@ -5,6 +5,20 @@
             <h2 class="text-xl font-semibold text-secondary-dark">Tabel Data Produk</h2>
             <a href="{{ route('admin.add.product') }}" class="bg-primary-dark hover:bg-emerald-600 text-white font-medium px-4 py-2.5 rounded-lg">Tambah Produk</a>
         </div>
+
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="this.parentElement.style.display='none';" style="cursor:pointer;">
+                    <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <title>Close</title>
+                        <path d="M14.348 5.652a1 1 0 0 0-1.414 0L10 8.586 7.066 5.652a1 1 0 1 0-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 1 0 1.414 1.414L10 11.414l2.934 2.934a1 1 0 0 0 1.414-1.414L11.414 10l2.934-2.934a1 1 0 0 0 0-1.414z"/>
+                    </svg>
+                </span>
+            </div>
+        @endif
+
+       
         <table id="productTable" class="display" style="width:100%">
             <thead>
                 <tr>
@@ -30,10 +44,16 @@
                         <td class="whitespace-nowrap">
                             <a href="{{ url($product->link) }}" target="_blank" class="text-blue-600">Link Produk</a>
                         </td>
+
                         <td>
                             <a href="#" class="text-secondary underline">Edit</a>
-                            <a href="#" class="text-red-500 underline">Hapus</a>
+                            <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini?');" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500 underline">Hapus</button>
+                            </form>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>

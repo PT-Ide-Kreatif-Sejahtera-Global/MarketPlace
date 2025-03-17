@@ -23,5 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/dashboard', [AdminControllers::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/add-product', [AdminControllers::class, 'addProduct'])->name('admin.add.product');
 
+    Route::delete('admin/product/{id}', [AdminControllers::class, 'destroy'])->name('admin.product.destroy');
+
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
