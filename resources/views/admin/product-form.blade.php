@@ -8,7 +8,7 @@
                 {{ isset($product) ? 'Edit Product' : 'Add Product' }}
             </h1>
         </div>
-        <form class="space-y-4 md:space-y-6" method="POST" action="#">
+        <form class="space-y-4 md:space-y-6" method="POST" action="{{ isset($product) ? route('admin.product.update', $product->id) : route('admin.product.store') }}">
             @csrf
             @if(isset($product))
                 @method('PUT')

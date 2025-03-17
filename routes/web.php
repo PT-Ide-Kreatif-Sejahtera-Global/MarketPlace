@@ -23,6 +23,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/admin/dashboard', [AdminControllers::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/add-product', [AdminControllers::class, 'addProduct'])->name('admin.add.product');
 
+    // Route untuk menyimpan produk baru
+    Route::post('/admin/product', [AdminControllers::class, 'store'])->name('admin.product.store');
+
+    // Route untuk menampilkan form edit product
+    Route::get('/admin/product/{id}/edit', [AdminControllers::class, 'edit'])->name('admin.product.edit');
+    
+    // Route untuk update produk
+    Route::put('/admin/product/{id}', [AdminControllers::class, 'update'])->name('admin.product.update');
+
     Route::delete('admin/product/{id}', [AdminControllers::class, 'destroy'])->name('admin.product.destroy');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
