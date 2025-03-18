@@ -3,14 +3,26 @@
     <section class="w-full my-6 flex flex-col gap-3">
         <div class="w-full flex justify-between items-center">
             <h2 class="text-xl font-semibold text-secondary-dark">Tabel Data Produk</h2>
-            <a href="{{ route('admin.add.product') }}" class="bg-primary-dark hover:bg-emerald-600 text-white font-medium px-4 py-2.5 rounded-lg">Tambah Produk</a>
+            <a href="{{ route('admin.product.add') }}" class="bg-primary-dark hover:bg-emerald-600 text-white font-medium px-4 py-2.5 rounded-lg">Tambah Produk</a>
         </div>
 
         @if(session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <div class="alert bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                 <span class="block sm:inline">{{ session('success') }}</span>
                 <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="this.parentElement.style.display='none';" style="cursor:pointer;">
                     <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <title>Close</title>
+                        <path d="M14.348 5.652a1 1 0 0 0-1.414 0L10 8.586 7.066 5.652a1 1 0 1 0-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 1 0 1.414 1.414L10 11.414l2.934 2.934a1 1 0 0 0 1.414-1.414L11.414 10l2.934-2.934a1 1 0 0 0 0-1.414z"/>
+                    </svg>
+                </span>
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('error') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="this.parentElement.style.display='none';" style="cursor:pointer;">
+                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <title>Close</title>
                         <path d="M14.348 5.652a1 1 0 0 0-1.414 0L10 8.586 7.066 5.652a1 1 0 1 0-1.414 1.414L8.586 10l-2.934 2.934a1 1 0 1 0 1.414 1.414L10 11.414l2.934 2.934a1 1 0 0 0 1.414-1.414L11.414 10l2.934-2.934a1 1 0 0 0 0-1.414z"/>
                     </svg>
@@ -93,4 +105,8 @@
         $('.justify-self-end').css('margin-left', 'auto');
         $('input[type="search"]').attr('placeholder', 'Search...');
     });
+
+    setTimeout(() => {
+        document.querySelectorAll('.alert').forEach(el => el.style.display = 'none');
+    }, 3000);
 </script>
