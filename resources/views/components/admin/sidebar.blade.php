@@ -40,6 +40,8 @@
 
 <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
 <script>
     $(document).ready(function () {
         const toggleButton = $("[data-drawer-toggle='logo-sidebar']");
