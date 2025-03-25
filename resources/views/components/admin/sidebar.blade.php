@@ -38,7 +38,9 @@
     </div>
 </aside>
 
-<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-10"></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 <script>
     $(document).ready(function () {
